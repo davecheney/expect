@@ -13,10 +13,10 @@ import (
 type Expect struct {
 	r bufio.Reader
 	w io.Writer
-	t *testing.T
+	t testing.TB
 }
 
-func New(t *testing.T, r io.Reader, w io.Writer) *Expect {
+func New(t testing.TB, r io.Reader, w io.Writer) *Expect {
 	t.Helper()
 	return &Expect{r: *bufio.NewReader(r), w: w, t: t}
 }
